@@ -1,4 +1,5 @@
 **Typedef: defines a new datatype. It can be used for creating an alias name for a datatype
+
 typedef struct employee
 {
 	int id;
@@ -8,5 +9,35 @@ typedef struct employee
 ----------
 
 **Macros: a fragment of code often defined using #define. This is a preprocessor. When a macro (aka name) is called in the program, it will replace the fragment of code that was defined in the macro. Macros can be a code block, loops, functions, etc. "find and replace"
+
 #define MAXIMUM(a,b) ((a) > (b) ? (a) : (b)) //Macro defined
 printf("Biggest number among the two is %d\n", MAXIMUM(50,25));
+
+----------
+
+**Static Functions: functions that are only visible to other functions in the same file. This allows us to restrict others from accessing internal functions that we want to hide from the outside world.
+
+[MAIN FILE]
+#include "header.h"
+int main()
+{
+	hello();
+}
+
+
+
+[FUNCTION FILE]
+#include "header.h"
+void hello()
+{
+	printf("HELLOW WORLD\n");
+}
+
+
+[HEADER FILE]
+#include <stdio.h>
+static void hello();
+
+This will output an error because the function hello() can only be used in the function file.
+
+----------
