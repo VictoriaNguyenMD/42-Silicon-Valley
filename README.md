@@ -4,8 +4,8 @@ My journey as a July 2019 pisciner and September 2019 cadet.
 ## Overview
 
 ## Programs
-#### C Piscine
-#### Cadet
+### C Piscine
+### Cadet
 
 ## Downloading
 To download/clone the the repository, in your terminal, type: 
