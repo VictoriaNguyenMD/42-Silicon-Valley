@@ -6,7 +6,7 @@
 #    By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 13:27:20 by vinguyen          #+#    #+#              #
-#    Updated: 2019/09/16 17:40:44 by vinguyen         ###   ########.fr        #
+#    Updated: 2019/09/17 23:38:30 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,3 +60,5 @@ xwang: he is a level 5 cadet who is currently studying at 42. He participated in
 mbrave: a very helpful gentleman who is a level 5 software engineer who I believe also blogged some of his post or likes to read blog posts about 42. He partnered with EDHEC Partnership Project pt. 1 and Build the Bay - Hackathon.
 
 JoChang: a level 10 individual who has excellent exam marks. Participated mentoring highschoolers in HackHihSchool and H2S Mentorship. For non-42 related stuff, the individual works in a fiber optic research company, doing a lot of math on light waves. For 42, the individual did ComputorV1 out of boredom. This is a polynomial calculator, using Python.
+
+marrodri: otherwise known as Marthel. I had evaluataed him and he informed me he was previously a 3D modeling major. He is interested in possibly using 3D modeling and software engineering in the future. He has been at 42 for almost 3/4 of a year and is currently working on an encryption project called ft_ssl_md5.
