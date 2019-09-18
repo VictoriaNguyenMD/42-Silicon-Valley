@@ -4,8 +4,8 @@ My journey as a July 2019 pisciner and September 2019 cadet.
 ## Overview
 
 ## Programs
-### C Piscine
-### Cadet
+#### **C Piscine**
+#### **Cadet**
 
 ## Media Features
 ### [Blog](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major): My Journey at 42 Silicon Valley as a Non-CS Major
@@ -17,3 +17,4 @@ To download/clone the the repository, in your terminal, type:
 
 ## Useful Resources
 [GitHub Formatting Tips](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+[My Journey at 42 Silicon Valley as a Non-CS Major](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major)
