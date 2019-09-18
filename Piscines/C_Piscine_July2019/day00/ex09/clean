@@ -1,0 +1,1 @@
+find . -regex '.*/.*~' -print -delete -o -regex '.*/#.*#' -print -delete
