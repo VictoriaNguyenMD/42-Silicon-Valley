@@ -5,10 +5,10 @@ My journey as a July 2019 pisciner and September 2019 cadet.
 [42 Silicon Valley](https://www.42.us.org) is a nontraditional, tuition-free computer science program that teaches you how to code using project-based learning and peer-learning. Its innovative learning model is geared toward launching tech enthusiasts into the field of engineering, coding, and programming. The school focuses not only on building a solid foundation in computer science but also expose students to a software engineering lifestyle. You learn how to code, how to solve problems, and how to deal with peers who are from different backgrounds.
 
 ## Programs
-### - C Piscine
+### [- C Piscine](https://github.com/VictoriaNguyenMD/42_Silicon_Valley/tree/master/Piscines/C_Piscine_July2019)
 As part of the admissions process to offically become a "cadet," you have to compete in a 1-month intensive bootcamp learning C and Git. This immersive experience in computer science will launch you in the world of programming with little-no background experience in coding. The program judges you acceptance based on your scores, your motivation, your willpower, and your ability to collaborate with others in the work setting. 
 
-### - Cadet
+### [- Cadet](https://github.com/VictoriaNguyenMD/42_Silicon_Valley/tree/master/Projects)
 After graduating from the C Piscine and receiving acceptance, you are officially a cadet and can specialize in numerous tracks, such as AI, security, and app development. Your lifestyle during this time is more flexible and parallels the lifestyle of a software engineer at a tech company. You are given freedom but also must meet some deadlines. The education itself is still project-based and there is no teachers--only you, Google, man, and your peers.
 
 ## Grading System
