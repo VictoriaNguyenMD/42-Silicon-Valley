@@ -26,7 +26,7 @@ To download/clone the the repository, in your terminal, type:
 
 [42 File Checker](https://github.com/jgigault/42FileChecker)
 
-## My Journey at 42 Silicon Valley as a Non-CS Major [Blog](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major)
+## My Journey at 42 Silicon Valley as a Non-CS Major ([Blog](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major))
 
 To read the articles for free, click the links below: 
 
