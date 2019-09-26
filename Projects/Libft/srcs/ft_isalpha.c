@@ -6,14 +6,17 @@
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 21:59:28 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/16 22:13:04 by vinguyen         ###   ########.fr       */
+/*   Updated: 2019/09/25 16:56:29 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha (int c)
+####
+# Install
+
+int	ft_isalpha(int c)
 {
 	if (c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z')
-		return 1;
+		return (1);
 	else
-		return 0;
+		return (0);
 }
