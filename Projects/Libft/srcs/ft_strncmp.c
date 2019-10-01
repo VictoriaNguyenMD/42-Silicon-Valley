@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 22:04:13 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/19 20:37:04 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/09/30 15:08:02 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/09/30 15:08:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int sign;
-	int output;
+/*
+** Compares null-terminated strings up until n characters
+*/
 
-	sign = 1;
-	output = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\v') ||
-	(*str == '\n') || (*str == '\f') || (*str == '\r'))
-	{
-		str++;
-	}
-	if (*str == '-')
-	{
-		sign = -1;
-		str++;
-	}
-	if (*str == '+')
-	{
-		str++;
-	}
-	while ((*str >= '0' && *str <= '9'))
-	{
-		output = (output * 10) + (*str++ - '0');
-	}
-	return (output * sign);
+#include <unistd.h>
+
+int	strncmp(const char *s1, const char *s2, size_t n)
+{
+	return (1);
+}
+
+int	main(void)
+{
+	return (1);
 }

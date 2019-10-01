@@ -12,9 +12,44 @@
 
 #include <stdio.h>
 
-int main()
+/*
+** Test Code for tolower
+*/
+
+int	main(void)
 {
-	printf("To Lower: a -> %c", ft_tolower('A'));
-	printf("To Upper: A -> %c", ft_tolower('a'));
-	printf("Is Print: 1 -> %d", ft_isprint('!');
+	printf("tolower: a -> %c", ft_tolower('a'));
+	printf("tolower: a -> %c", ft_tolower('a'));
+	printf("tolower: a -> %c", ft_tolower(65));
+	printf("tolower: 1 -> %c", ft_tolower('1'));
+	printf("tolower: 0 -> %c", ft_tolower(48));
+	return (1);
 }
+
+/*
+** Test Code for toupper
+*/
+
+int	main(void)
+{
+	printf("tolower: A -> %c", ft_tolower('a'));
+	printf("tolower: A -> %c", ft_tolower('a'));
+	printf("tolower: A -> %c", ft_tolower(65));
+	printf("tolower: 1 -> %c", ft_tolower('1'));
+	printf("tolower: 0 -> %c", ft_tolower(48));
+	return (1);
+}
+
+// /*
+// ** Test Code for isprint, isascii, isalnum, isdigit, isalpha
+// */
+
+// int	main(void)
+// {
+// 	printf("isprint: 1 -> %d", ft_isprint('!'));
+// 	prtinf("isascii: ");
+// 	printf("isalnum: ");
+// 	printf("isdigit: ");
+// 	pritnf("isalpha: ");
+// 	return (1);
+// }

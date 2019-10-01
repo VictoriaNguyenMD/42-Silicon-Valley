@@ -41,3 +41,47 @@ static void hello();
 This will output an error because the function hello() can only be used in the function file.
 
 ----------
+
+**Makefile: a way to quicky run a program with multiple files. It recompiles only the files that have been changed.
+
+all:  <- the first command of the Makefile will always run
+
+
+
+all: hello
+
+hello: object_files
+	gcc object_files.o -o hello
+
+main.o: main.c  <- main.o has the dependency of main.c. This means that main.c should be present
+	gcc -c main.c
+
+
+FORMAT
+[target]: [dependency]
+	[command]
+
+.PHONY: is used when there may be an instance in which the Makefile has a file named "clean" or such. If there a file, then the normal clean function wouldn't run since the file already exists. If there is a file within the same directory with the name, you need to include ".PHONY"
+
+----------
+Libraries: stores multiple functions
+
+Two types:
+(1) static library (*.a): contains object files & a symbol table that lists all the object files. When you use
+a link; it wont depend on external libraries because it copies the functions into the executable
+(2) shared/dynamic libraries (*.so): contains object files. The executable does not have the functions in the library.
+At run time, the file looks for this and dynamically run this.
+
+ar -tv shows whats in the archive file
+nm libft.a contains an object with symbols
+ranlib libft.a create and update an index for teh library
+
+
+/bin/rm will always refer to the binary rm command on your system. If you just write rm abc.txt one of these may happen:
+(1) Your shell implements rm directly as a builtin function or there is a shell function called rm (no external command is run).
+(2) rm has previously been aliased (with alias rm=<substituted-command>) to mean something different. Usually the aliased command is similar in function but it does not have to be.
+(3) If none of the above is applicable, the shell looks up the external command in /bin and runs it.
+
+Linking library to main
+gcc -L ./ -l ft main.c
+gcc libft.a main.c(location)

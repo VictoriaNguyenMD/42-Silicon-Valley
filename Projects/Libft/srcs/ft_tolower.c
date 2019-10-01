@@ -10,10 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Input: character or integer
+**	Return: lower-case letter (if present) or unchanged argument
+*/
+
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
 	else
-		return c;
+		return (c);
 }
