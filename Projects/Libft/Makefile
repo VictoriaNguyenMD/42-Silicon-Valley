@@ -35,13 +35,13 @@ all: $(TARGET)
 
 #Command that compiles the *.c files, creates the library, and index the files
 $(TARGET):
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addsuffix $(SRC), $(SRC_FILES))
-	ar -rv $(TARGET)
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC), $(SRC_FILES))
+	ar -rv $(TARGET) $(OBJ_FILES)
 	ranlib $(TARGET)
 
 .PHONY: clean
 clean:
-	/bin/rm -rf *.o
+	/bin/rm -rf $(OBJ_FILES)
 
 .PHONY: fclean
 fclean: clean

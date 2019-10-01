@@ -85,3 +85,10 @@ ranlib libft.a create and update an index for teh library
 Linking library to main
 gcc -L ./ -l ft main.c
 gcc libft.a main.c(location)
+
+
+------
+char smallstring[4]= "Bar";
+
+[] size of (including the \0)
+You don't need \0, automatically knows
