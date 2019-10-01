@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 21:59:28 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/25 16:56:29 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 00:05:06 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 00:05:09 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Determines if an integer is an alphabetical character
+** Locates the last occurence of c in a string. The null character \0 is part of the string
+** Input: const char s, int c
+** Return:
+**		ptr to located char
+**		NULL if not in the string
 */
 
 #include "../includes/libft.h"
 
-int	ft_isalpha(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
+	int i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	while (s[i] != c && i >= 0)
+	{
+		i--;
+	}
+	if(i < 0)
+		return ((char*) NULL);
 	else
-		return (0);
+		return ((char*)(s + i));
 }

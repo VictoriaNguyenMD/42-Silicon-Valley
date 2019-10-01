@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 21:59:28 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/25 16:56:29 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/09/30 22:51:42 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/09/30 22:51:51 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Determines if an integer is an alphabetical character
+** Compares null-terminated strings
+** Input: const char *s1, const char *s2
+** Return:
+**		>0 if s1 > s2
+**		0  if s1 == s2
+**		<-1 if s1 < s2
 */
 
 #include "../includes/libft.h"
 
-int	ft_isalpha(int c)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	else
-		return (0);
+	size_t count = 0;
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

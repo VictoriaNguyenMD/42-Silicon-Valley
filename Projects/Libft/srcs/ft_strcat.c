@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 21:59:28 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/25 16:56:29 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 11:03:06 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 11:03:15 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Determines if an integer is an alphabetical character
+** Copy of the null-terminated s2 to null-terminated s1 and then add \0
+** Input: char *restrict s1, const char *restrict s2
+** Output: pointer to s1
 */
 
-#include "../includes/libft.h"
+#include <../includes/libft.h>
 
-int	ft_isalpha(int c)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	else
-		return (0);
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	s1[i + j] = '\0';
+	return s1;
 }

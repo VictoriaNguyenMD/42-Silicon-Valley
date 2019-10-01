@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 15:08:02 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/30 15:08:03 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 11:34:27 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 11:34:28 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Compares null-terminated strings up until n characters
-** Input: const char *s1, const char *s2, size_t n
+** Appends null-terminated s2 to null-terminated s1 and adds '\0'. Will not append more than n characters from s2
+** Input:
+**		char *restrict s1, const char *restrict s2, size_t n
 ** Return:
-**		>0 if s1 > s2
-**		0  if s1 == s2
-**		<-1 if s1 < s2
+**		pointer to s1
 */
 
-#include "../includes/libft.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
-	size_t count = 0;
-	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2 && count++ <= n)
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j] && j < n)
 	{
-		s1++;
-		s2++;
+		s1[i + j] = s2[j];
+		j++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	s1[i + j] = '\0';
+	return s1;
 }

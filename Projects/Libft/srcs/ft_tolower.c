@@ -15,6 +15,8 @@
 **	Return: lower-case letter (if present) or unchanged argument
 */
 
+#include "../includes/libft.h"
+
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

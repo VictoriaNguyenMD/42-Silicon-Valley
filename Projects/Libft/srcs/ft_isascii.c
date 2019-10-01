@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Determines if an integer is an ascii charcter
+*/
+
+#include "../includes/libft.h"
+
 int	ft_isascii(int c)
 {
-	if (c >= 'nul' && c <= 'del')
+	if (c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);
