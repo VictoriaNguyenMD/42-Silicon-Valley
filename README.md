@@ -39,3 +39,5 @@ To read the articles for free, click the links below:
 * [Cadet: Day 7, LinkedIn (9/22/19)](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major/cadet-day-7-linkedin-9-22-19-83aa47b19334?source=friends_link&sk=07fa259b4f45b309724d526382c060ab)
 * [Cadet: Day 8, Women in Tech (9/22/19)](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major/cadet-day-8-pay-negotiation-9-22-19-d593c25d132c?source=friends_link&sk=3b06cc02e99e193fe9a5e14f5d0ed2ad)
 * [Cadet: Day 9 Exam #2 (9/24/2019)](https://medium.com/@VictoriaNguyenMD/cadet-day-9-exam-2-9-24-2019-cc2499f117ac?source=friends_link&sk=36bac4b40ee87c21c640136af5fa46d8)
+* [Cadet: Day 10 Comments (9/25/2019)](https://medium.com/@VictoriaNguyenMD/cadet-day-10-comments-9-25-2019-65c9150976e4?source=friends_link&sk=4a62edac710cb87b8c0ed979d66adec1)
+* [Cadet: Day 11 Stanford (9/26/2019)](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major/cadet-day-11-stanford-9-26-2019-8e53d3bd2434?source=friends_link&sk=76a626e5640c01cdedbc3d3b3602c376)
