@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcat.c                                           :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 11:03:06 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/10/01 11:03:15 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 14:03:32 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 14:03:33 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Copy of the null-terminated s2 to null-terminated s1 and then add \0
-** Input: char *restrict s1, const char *restrict s2
-** Output: pointer to s1
+** Writes len bytes of value c (convert to unsigned char) to string b
+** Return: first argument
 */
 
-#include <../includes/libft.h>
-
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
-	int	j;
+	size_t			i;
+	unsigned char	*ptr;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
+	ptr = (unsigned char)b;
+	while (i < len)
 	{
-		s1[i + j] = s2[j];
-		j++;
+		ptr[i] = (unsigned char)c;
+		i++;
 	}
-	s1[i + j] = '\0';
-	return (s1);
+	return (b);
 }
+

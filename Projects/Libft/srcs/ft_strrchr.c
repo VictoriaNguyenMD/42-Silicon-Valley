@@ -22,7 +22,9 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i = 0;
+	int i;
+
+	i = 0;
 	while (s[i] != '\0')
 	{
 		i++;
@@ -31,8 +33,8 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		i--;
 	}
-	if(i < 0)
-		return ((char*) NULL);
+	if (i < 0)
+		return ((char*)NULL);
 	else
 		return ((char*)(s + i));
 }

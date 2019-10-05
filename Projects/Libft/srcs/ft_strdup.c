@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcat.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 11:03:06 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/10/01 11:03:15 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 13:40:24 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 13:40:26 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Copy of the null-terminated s2 to null-terminated s1 and then add \0
-** Input: char *restrict s1, const char *restrict s2
-** Output: pointer to s1
+** A function that allocates memory for a copy of the string s1, does the cpy and returns the ptr
+** If insufficient memory is available, NULL is returned and errno is set to ENOMEN
+** Return: ptr to copy
 */
 
-#include <../includes/libft.h>
-
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
-	int	j;
+	int		ls1;
+	int		i;
+	char	*s2;
 
+	ls1 = 0;
 	i = 0;
-	j = 0;
 	while (s1[i])
-		i++;
-	while (s2[j])
 	{
-		s1[i + j] = s2[j];
-		j++;
+		ls1++;
+		i++;
 	}
-	s1[i + j] = '\0';
-	return (s1);
+	s2 = (char*)malloc(sizeof(char) * (ls1 + 1));
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }

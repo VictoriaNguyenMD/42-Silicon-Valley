@@ -23,12 +23,17 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char *c1 = haystack;
-	const char *c2 = needle;
-	int traverse = 0;
-	size_t count = 0;
+	const char	*c1;
+	const char	*c2;
+	int			traverse;
+	size_t		count;
+
+	c1 = haystack;
+	c2 = needle;
+	traverse = 0;
+	count = 0;
 	if (*needle == '\0')
-		return ((char*) haystack);
+		return ((char*)haystack);
 	while (*c1 != '\0' && *c2 != '\0' && count++ <= len)
 	{
 		if (*c1 == *c2)
@@ -38,7 +43,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				traverse++;
 			}
 			if (*(c2 + traverse) == '\0')
-					return ((char*) c1);
+				return ((char*)c1);
 		}
 		c1++;
 	}

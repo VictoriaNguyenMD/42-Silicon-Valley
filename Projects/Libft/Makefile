@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 #Library name
-TARGET = libft.a
+NAME = libft.a
 
 #Folders containing *.c and *.h files
 SRC = srcs/
@@ -31,13 +31,13 @@ CFLAGS = -g -Wall -Wextra -Werror
 
 #Baseline command that compiles all the files
 .PHONY: all
-all: $(TARGET)
+all: $(NAME)
 
 #Command that compiles the *.c files, creates the library, and index the files
-$(TARGET):
+$(NAME):
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC), $(SRC_FILES))
-	ar -rv $(TARGET) $(OBJ_FILES)
-	ranlib $(TARGET)
+	ar -rv $(NAME) $(OBJ_FILES)
+	ranlib $(NAME)
 
 .PHONY: clean
 clean:
@@ -45,7 +45,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
-	/bin/rm $(TARGET)
+	/bin/rm $(NAME)
 
 #Command that cleans all the files and remakes the library
 .PHONY: re

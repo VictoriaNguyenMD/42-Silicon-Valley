@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcat.c                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 11:03:06 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/10/01 11:03:15 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/01 14:30:28 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/01 14:35:29 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Copy of the null-terminated s2 to null-terminated s1 and then add \0
-** Input: char *restrict s1, const char *restrict s2
-** Output: pointer to s1
+**	writes n zeroed bytes to the string s. If n = zero, then nothing occurs
 */
 
-#include <../includes/libft.h>
-
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+void	bzero(void *s, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
+	while (i < n)
 	{
-		s1[i + j] = s2[j];
-		j++;
+		ptr[i] = (void*)0;
+		i++;
 	}
-	s1[i + j] = '\0';
-	return (s1);
 }

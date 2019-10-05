@@ -64,7 +64,7 @@ char	*ft_strcat(char *restrict s1, const char *restrict s2)
 	return (s1);
 } */
 
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
+/* char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
 	int i;
 	int j;
@@ -80,14 +80,52 @@ char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 	}
 	s1[i + j] = '\0';
 	return s1;
-}
-
+} */
+/*
 int main(void) {
   char largestring[15] = "Foaao";
-  char smallstring[6]= "Baraa";
+  char smallstring[6]= "Ba";
+
+  size_t s;
+  s = strlcat(largestring, smallstring, 4);
+  printf("%zd", s);
+  return 0;
+}
+ */
+
+/* size_t	ft_strlen(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while(*s)
+	{
+		i++;
+		s++;
+	}
+	return i;
+}
+
+int	main(void)
+{
+	size_t val;
+
+	val = ft_strlen("World");
+	printf("%zd", val);
+	return (0);
+}
+ */
+
+int main(void) {
+  char *largestring = "Foaao";
+  char smallstring[4] = "Bar";
 
   char *s;
-  s = ft_strncat(largestring, smallstring, 2);
+  char *test = strdup(largestring);
+  test[3] = '*';
+  s = (char*)realloc(test, 20 * sizeof(char));
+//   printf("%s", test);
+  s = strcat(s, strdup(smallstring));
   printf("%s", s);
   return 0;
 }

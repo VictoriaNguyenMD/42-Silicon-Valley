@@ -122,3 +122,20 @@ int main(void) {
   return 0;
 }
 #endif
+
+/*
+** Test Code for strcpy
+*/
+
+#ifdef strncat
+int	main(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char*)malloc(10);
+	str1 = ft_strcpy(str1, "World");
+	printf("%s", str1);
+	return (0);
+}
+#endif
