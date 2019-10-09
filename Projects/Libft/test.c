@@ -139,3 +139,28 @@ int	main(void)
 	return (0);
 }
 #endif
+
+#ifdef memcpy
+int	main(void) {
+	char dst[20];
+	char src[5] = "noon";
+	unsigned char *out;
+
+	out = ft_memcpy(dst, src, 30);
+	printf("%s", out);
+	return (0);
+}
+#endif
+
+#ifdef memchr
+int main(void) {
+	char dst[20] = "Hello";
+	char src = 'l';
+	unsigned char* out;
+
+	out = ft_memchr(dst, src, 10);
+	printf("%s\n%p", out, out);
+	return (0);
+
+}
+#endif

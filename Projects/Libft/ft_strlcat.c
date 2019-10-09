@@ -26,7 +26,7 @@
 /*
 **	If dstsize <= len(dst), then len(src) + size,
 **	else len(src) + len(dst) to obtain the smallest destination output
-*/
+*/void	*memcpy(void *restrict dst, const void *restrict src, size_t n)
 
 #include "libft.h"
 
@@ -47,7 +47,7 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 		len += size;
 	else
 		len += i;
-	while ((src[j] != '\0') && ((i + j) <= size ) && (size > 0))
+	while ((src[j] != '\0') && ((i + j) <= size) && (size > 0))
 	{
 		dst[(j + i)] = src[j];
 		j++;
@@ -62,8 +62,10 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 /*
 ** 1) i = len(dst)
 ** 2) len = len(src)
-** 3) If the len(dst) is less than the size, return the TRIED size + len(src) since this is what may be created
+** 3) If the len(dst) is less than the size, return the TRIED size
+**							+ len(src) since this is what may be created
 ** 4) Else, len = len(dst) + len(src)
-** 5) While src has a value, size is greater than 0, and current size is less than the total size, then concatenate
+** 5) While src has a value, size is greater than 0, and current
+**						size is less than the total size, then concatenate
 ** 6) If the size is not 0 then add a terminating character
 */

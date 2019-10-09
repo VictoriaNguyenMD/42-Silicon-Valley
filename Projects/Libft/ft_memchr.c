@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 14:47:23 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/10/01 14:47:25 by vinguyen         ###   ########.fr       */
+/*   Created: 2019/10/08 07:25:50 by vinguyen          #+#    #+#             */
+/*   Updated: 2019/10/08 07:25:52 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Copies n bytes from the memory are src to memory area dst
-** Returns: dst
+** Locates the first occurence of c in unsigned char in string s
+** Return: ptr to the byte located or NULL i no byte exists within n bytes
 */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
+	unsigned char	*ucs;
 	size_t			i;
-	unsigned char	*cdst;
-	unsigned char	*csrc;
 
-	cdst = (unsigned char*)dst;
-	csrc = (unsigned char*)src;
+	ucs = (unsigned char*)c;
 	i = 0;
-	while (i < n && csrc[i] != '\0')
+	while (i < n && ucs[i])
 	{
-		cdst[i] = csrc[i];
-		i++;
+		if (ucs[i] == (unsigned char*)c)
+			return (&ucs[i]);
 	}
-	return (cdst);
+	return (NULL);
 }

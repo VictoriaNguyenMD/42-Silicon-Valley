@@ -116,16 +116,87 @@ int	main(void)
 }
  */
 
-int main(void) {
-  char *largestring = "Foaao";
-  char smallstring[4] = "Bar";
 
-  char *s;
-  char *test = strdup(largestring);
-  test[3] = '*';
-  s = (char*)realloc(test, 20 * sizeof(char));
-//   printf("%s", test);
-  s = strcat(s, strdup(smallstring));
-  printf("%s", s);
-  return 0;
+// void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+// {
+// 	size_t i;
+// 	unsigned char *cdst;
+// 	unsigned char *csrc;
+
+// 	cdst = (unsigned char*)dst;
+// 	csrc = (unsigned char*)src;
+// 	i = 0;
+// 	while (i < n && csrc[i] != '\0')
+// 	{
+// 		cdst[i] = csrc[i];
+// 		i++;
+// 	}
+// 	return cdst;
+// }
+
+// void	*ft_memchr(const void *s, int c, size_t n)
+// {
+// 	unsigned char	*ucs;
+// 	size_t			i;
+
+// 	ucs = (unsigned char*)s;
+// 	i = 0;
+// 	while (i < n && ucs[i])
+// 	{
+// 		if (ucs[i] == (unsigned char)c)
+// 			return ((unsigned char*)&ucs[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char	*cdst;
+	unsigned char	*csrc;
+	size_t			i;
+
+	cdst = (unsigned char*)dst;
+	csrc = (unsigned int *)src;
+	i = 0;
+	printf("\n");
+	for(int i = 0; i < 5; i++)
+    	printf("%d ", cdst[i]);
+	// if (cdst <= csrc)
+	// {
+	// 	while (csrc[i] && i < len)
+	// 	{
+	// 		cdst[i] = csrc[i];
+	// 		printf("%d, %zu, %zu", cdst[i], i, len);
+	// 		i++;
+	// 	}
+	// 	// for(int i = 0; i < 5; i++)
+    // 	// 	printf("%d ", cdst[i]);
+	// }
+	// else
+	// {
+	// 	while (len > 0)
+	// 	{
+	// 		len--;
+	// 		cdst[len] = csrc[len];
+	// 	}
+	// }
+	return (cdst);
+}
+
+void	test(void *src)
+{
+	unsigned char *csrc = (unsigned char*)src;
+	for(int i = 0; i < 5; i++)
+    	printf("%d ", csrc[i]);
+}
+
+int main(void) {
+	int arr[5] = { 11, 22, 33, 44, 55 };
+
+	for(int i = 0; i < 5; i++)
+    	printf("%d ", (unsigned char)arr[i]);
+	printf("\n");
+	test(arr);
+	return 0;
 }
