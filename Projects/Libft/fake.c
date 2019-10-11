@@ -150,53 +150,64 @@ int	main(void)
 // 	return (NULL);
 // }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	unsigned char	*cdst;
-	unsigned char	*csrc;
-	size_t			i;
+// void	*ft_memmove(void *dst, const void *src, size_t len)
+// {
+// 	unsigned char	*cdst;
+// 	unsigned char	*csrc;
+// 	size_t			i;
 
-	cdst = (unsigned char*)dst;
-	csrc = (unsigned int *)src;
+// 	cdst = (unsigned char*)dst;
+// 	csrc = (unsigned int *)src;
+// 	i = 0;
+// 	printf("\n");
+// 	for(int i = 0; i < 5; i++)
+//     	printf("%d ", cdst[i]);
+// 	// if (cdst <= csrc)
+// 	// {
+// 	// 	while (csrc[i] && i < len)
+// 	// 	{
+// 	// 		cdst[i] = csrc[i];
+// 	// 		printf("%d, %zu, %zu", cdst[i], i, len);
+// 	// 		i++;
+// 	// 	}
+// 	// 	// for(int i = 0; i < 5; i++)
+//     // 	// 	printf("%d ", cdst[i]);
+// 	// }
+// 	// else
+// 	// {
+// 	// 	while (len > 0)
+// 	// 	{
+// 	// 		len--;
+// 	// 		cdst[len] = csrc[len];
+// 	// 	}
+// 	// }
+// 	return (cdst);
+// }
+
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
+{
+	size_t i;
+
 	i = 0;
-	printf("\n");
-	for(int i = 0; i < 5; i++)
-    	printf("%d ", cdst[i]);
-	// if (cdst <= csrc)
-	// {
-	// 	while (csrc[i] && i < len)
-	// 	{
-	// 		cdst[i] = csrc[i];
-	// 		printf("%d, %zu, %zu", cdst[i], i, len);
-	// 		i++;
-	// 	}
-	// 	// for(int i = 0; i < 5; i++)
-    // 	// 	printf("%d ", cdst[i]);
-	// }
-	// else
-	// {
-	// 	while (len > 0)
-	// 	{
-	// 		len--;
-	// 		cdst[len] = csrc[len];
-	// 	}
-	// }
-	return (cdst);
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+	{
+		i++;
+	}
+	if (s1[i] == s2[i])
+	{
+		return (1);
+	}
+	return (0);
 }
 
-void	test(void *src)
-{
-	unsigned char *csrc = (unsigned char*)src;
-	for(int i = 0; i < 5; i++)
-    	printf("%d ", csrc[i]);
-}
+
+
 
 int main(void) {
-	int arr[5] = { 11, 22, 33, 44, 55 };
-
-	for(int i = 0; i < 5; i++)
-    	printf("%d ", (unsigned char)arr[i]);
-	printf("\n");
-	test(arr);
-	return 0;
+	char a[10] = "Hello";
+	char b[10] = "Helloa";
+	printf("%d", ft_strnequ(a, b, 10));
+	return (0);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Test Code for tolower
@@ -162,5 +162,23 @@ int main(void) {
 	printf("%s\n%p", out, out);
 	return (0);
 
+}
+#endif
+
+#ifdef strequ
+int main(void) {
+	char a[10] = "Hello";
+	char b[10] = "Hello";
+	printf("%d", ft_strequ(a, b));
+	return (0);
+}
+#endif
+
+#ifdef strnequ
+int main(void) {
+	char a[10] = "Hello";
+	char b[10] = "Helloa";
+	printf("%d", ft_strnequ(a, b, 10));
+	return (0);
 }
 #endif
