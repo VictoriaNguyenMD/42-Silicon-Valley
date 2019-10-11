@@ -184,30 +184,60 @@ int	main(void)
 // 	return (cdst);
 // }
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
-{
-	size_t i;
+#include <unistd.h>
 
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
-	{
-		i++;
-	}
-	if (s1[i] == s2[i])
-	{
-		return (1);
-	}
-	return (0);
-}
+// void	ft_putnbr(int n)
+// {
+// 	int out;
+// 	long lnum = (long)n;
 
+// 	if (lnum < 0)
+// 	{
+// 		write(1, "-", 1);
+// 		lnum *= -1;
+// 	}
+// 	if (lnum == 0)
+// 		write(1, "0", 1);
+// 	if (lnum == 0)
+// 	{
+// 		return ;
+// 	}
+// 	else
+// 	{
+// 		ft_putnbr(lnum/ 10);
+// 		out = lnum % 10 + '0';
+// 		write(1, &out, 1);
+// 	}
+// }
+
+// int	ft_countwords (char *s, char dl)
+// {
+// 	int count;
+// 	int start;
+
+// 	count = 0;
+// 	start = 0;
+// 	while (s && *s)
+// 	{
+// 		if (*s == dl)
+// 		{
+// 			s++;
+// 		}
+// 		else
+// 		{
+// 			count++;
+// 			while (*s && *s != dl)
+// 			{
+// 				s++;
+// 			}
+// 		}
+// 	}
+// 	return (count);
+// }
 
 
 
 int main(void) {
-	char a[10] = "Hello";
-	char b[10] = "Helloa";
-	printf("%d", ft_strnequ(a, b, 10));
+	ft_strsplit("*hello*fellow***students*", '*');
 	return (0);
 }

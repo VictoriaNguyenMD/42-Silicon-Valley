@@ -182,3 +182,31 @@ int main(void) {
 	return (0);
 }
 #endif
+
+#ifdef strsub
+int main(void) {
+	char a[15] = "AB";
+	char b[10] = "Helloa";
+	printf("%s", ft_strsub(a, 1, 3));
+	return (0);
+}
+#endif
+
+#ifdef putnbr
+int main(void) {
+	ft_putnbr(-321);
+	return (0);
+}
+#endif
+
+#ifdef strsplit
+int main(void) {
+	char **arr = ft_strsplit("*hello*fellow***students*", '*');
+	while(*arr)
+	{
+		printf("%s", *arr);
+		arr++;
+	}
+	return (0);
+}
+#endif

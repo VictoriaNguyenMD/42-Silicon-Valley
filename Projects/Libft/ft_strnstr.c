@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 /*
-** Locates the first occurence of the null-terminated string needle in the haystack. Only len chars searched
+** Locates the first occurence of the null-terminated string needle in the
+** haystack. Only len chars searched
 ** const char *haystack, const char *needle, size_t len)
 ** Return:
 **		needle == '\0' -> haystack
@@ -19,7 +20,7 @@
 **		otherwise, pointer to first char of the first occurence of needle
 */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
