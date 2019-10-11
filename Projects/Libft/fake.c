@@ -236,8 +236,22 @@ int	main(void)
 // }
 
 
+int	ft_nbrlen(int num)
+{
+	int count;
+
+	count = 0;
+	if (num == 0)
+		return (1);
+	while (num != 0)
+	{
+		count++;
+		num /= 10;
+	}
+	return (count);
+}
 
 int main(void) {
-	ft_strsplit("*hello*fellow***students*", '*');
+	printf("%d", ft_nbrlen(-123));
 	return (0);
 }

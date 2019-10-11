@@ -210,3 +210,10 @@ int main(void) {
 	return (0);
 }
 #endif
+
+#ifdef itoa
+int main(void) {
+	printf("%s", ft_itoa(2147483647));
+	return (0);
+}
+#endif

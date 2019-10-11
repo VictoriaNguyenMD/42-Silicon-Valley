@@ -61,6 +61,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
+char	* ft_itoa(int n);
 void	ft_putchar(int c);
 void	ft_putstr(char const *s);
 void	ft_putendl(char const *s);
@@ -74,4 +75,5 @@ int	ft_strstart(char *s);
 int	ft_strend(char *s);
 int	ft_iswhitespace(char c);
 int	ft_countwords(char *s, char dl);
+int	ft_nbrlen(int num);
 #endif

@@ -67,5 +67,6 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		dup++;
 	}
+	arr[j] = '\0';
 	return (arr);
 }
