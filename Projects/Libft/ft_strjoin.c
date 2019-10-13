@@ -21,14 +21,13 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
+	size_t	i;
 	int		clen;
 	char	*s;
 
 	clen = ft_strlen(s1) + ft_strlen(s2);
 	i = 0;
 	s = (char*)malloc(sizeof(char) * (clen + 1));
-
 	if (!s1 || !s2 || !s)
 		return (NULL);
 	while (i < ft_strlen(s1))

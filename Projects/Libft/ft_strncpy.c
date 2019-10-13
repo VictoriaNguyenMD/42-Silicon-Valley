@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 /*
 ** Copies the string src to dst until n characters
 ** If src is less than len characters long, the remainder of dst

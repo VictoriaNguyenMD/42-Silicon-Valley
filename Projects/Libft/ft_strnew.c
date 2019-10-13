@@ -24,6 +24,7 @@ char	*ft_strnew(size_t size)
 	char	*output;
 	size_t	i;
 
+	i = 0;
 	output = (char*)malloc(sizeof(char) * (size + 1));
 	if (!output)
 		return (NULL);

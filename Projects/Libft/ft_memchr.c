@@ -22,11 +22,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*ucs;
 	size_t			i;
 
-	ucs = (unsigned char*)c;
+	ucs = (unsigned char*)s;
 	i = 0;
 	while (i < n && ucs[i])
 	{
-		if (ucs[i] == (unsigned char*)c)
+		if (ucs[i] == (unsigned char)c)
 			return (&ucs[i]);
 	}
 	return (NULL);

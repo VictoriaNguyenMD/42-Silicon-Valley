@@ -23,8 +23,8 @@
 
 char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;

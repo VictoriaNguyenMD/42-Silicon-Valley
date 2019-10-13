@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putnbr_fd(int n, int fd)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		out;
 	long	lnum;

@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_putchar(int c)
 {
-	write(1, c, 1);
+	char output;
+
+	output = c + '0';
+	write(1, &output, 1);
 }

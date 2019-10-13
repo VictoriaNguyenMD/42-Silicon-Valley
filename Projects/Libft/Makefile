@@ -45,17 +45,17 @@ all: $(NAME)
 
 #Command that compiles the *.c files, creates the library, and index the files
 $(NAME):
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC)/, $(SRC_FILES))
-	ar -rv $(NAME) $(OBJ_FILES)
-	ranlib $(NAME)
+	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC)/, $(SRC_FILES))
+	@ar -rv $(NAME) $(OBJ_FILES)
+	@ranlib $(NAME)
 
 .PHONY: clean
 clean:
-	/bin/rm -rf $(OBJ_FILES)
+	@/bin/rm -rf $(OBJ_FILES)
 
 .PHONY: fclean
 fclean: clean
-	/bin/rm $(NAME)
+	@/bin/rm $(NAME)
 
 #Command that cleans all the files and remakes the library
 .PHONY: re
@@ -66,3 +66,8 @@ re: fclean all
 test:
 	@gcc fake.c -g $(SANIT)
 	@./a.out
+
+#Norminette
+.PHONY: Norminette
+norm:
+	@norminette *.c *.h

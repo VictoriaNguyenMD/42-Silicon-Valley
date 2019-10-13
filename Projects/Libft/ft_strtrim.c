@@ -26,9 +26,10 @@ char	*ft_strtrim(char const *s)
 	char	*str;
 	int		len;
 
-	len = (ft_strend(s) - ft_strstart(s) + 1);
+	len = (ft_strend((char*)s) - ft_strstart((char*)s) + 1);
 	str = ft_strnew(len + 1);
 	if (str)
-		str = ft_strsub(s, (unsigned int)ft_strstart(s), (size_t)len);
+		str = ft_strsub((char*)s, (unsigned int)
+		ft_strstart((char*)s), (size_t)len);
 	return (str);
 }

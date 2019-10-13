@@ -15,14 +15,15 @@
 ** including the arr itself. This arr is obtained by splitting s using the
 ** char c as a delim if alloc fails, return NULL
 ** Example:
-** ft_strsplit("*hello*fellow***students*", ’*’) return ["hello", "fellow", "students"]
+** ft_strsplit("*hello*fellow***students*", ’*’)
+**		Returns ["hello", "fellow", "students"]
 **	Param: string to split, delim char
 **	Return: array of new strings
 */
 
 #include "libft.h"
 
-static int	ft_strlen_firstword(char *s, char dl)
+static int		ft_strlen_firstword(char *s, char dl)
 {
 	int		count;
 
@@ -35,7 +36,7 @@ static int	ft_strlen_firstword(char *s, char dl)
 	return (count);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	*dup;
 	char	**arr;
@@ -45,27 +46,21 @@ char	**ft_strsplit(char const *s, char c)
 
 	j = 0;
 	dup = ft_strdup(s);
-	arr = (char**)malloc(sizeof(char*) * (ft_countwords(dup, c) + 1));
-	if (!arr)
+	if (!(arr = ft_memalloc(ft_countwords(dup, c))))
 		return (NULL);
 	while (dup && *dup)
 	{
 		if (*dup != c)
 		{
-			tmp = (char*)malloc(sizeof(char*) * ft_strlen_firstword(dup, c));
+			tmp = ft_memalloc(ft_strlen_firstword(dup, c));
 			i = 0;
 			while (*dup != c)
 			{
-				tmp[i] = *dup;
-				i++;
-				dup++;
+				tmp[i++] = *dup++;
 			}
-			tmp[i] = '\0';
-			arr[j] = tmp;
-			j++;
+			arr[j++] = tmp;
 		}
 		dup++;
 	}
-	arr[j] = '\0';
 	return (arr);
 }

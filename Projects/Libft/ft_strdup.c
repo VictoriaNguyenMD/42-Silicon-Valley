@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 /*
-** A function that allocates memory for a copy of the string s1, does the cpy and returns the ptr
-** If insufficient memory is available, NULL is returned and errno is set to ENOMEN
+** A function that allocates memory for a copy of the string s1, does
+**	the cpy and returns the ptr
+** If insufficient memory is available, NULL is returned and errno is
+**	set to ENOMEN
 ** Return: ptr to copy
 */
 

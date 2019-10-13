@@ -19,8 +19,8 @@
 
 #include "libft.h"
 
- void	*ft_memalloc(size_t size)
- {
+void	*ft_memalloc(size_t size)
+{
 	unsigned char	*output;
 	size_t			i;
 
@@ -37,4 +37,4 @@
 		}
 	}
 	return (output);
- }
+}
