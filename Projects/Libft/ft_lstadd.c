@@ -10,4 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Adds the element new at the beg of the list
+**	Param #1: The adress of a pointer to the first link of a list
+**	Param #2: The link to add at the beginning of the list
+*/
 
+#include "libft.h"
+
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	if (alst && *alst)
+		new->next = *alst;
+	*alst = new;
+}
