@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 /*
-** Appends null-terminated s2 to null-terminated s1 and adds '\0'. Will not append more than n characters from s2
+** Appends null-terminated s2 to null-terminated s1 and adds '\0'.
+**	Will not append more than n characters from s2
 ** Input:
 **		char *restrict s1, const char *restrict s2, size_t n
 ** Return:
@@ -35,5 +36,5 @@ char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 		j++;
 	}
 	s1[i + j] = '\0';
-	return s1;
+	return (s1);
 }

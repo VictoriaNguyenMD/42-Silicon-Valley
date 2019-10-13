@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 
 /*
-** Locates the last occurence of c in a string. The null character \0 is part of the string
+** Locates the last occurence of c in a string. The null character \0
+**	is part of the string
 ** Input: const char s, int c
 ** Return:
 **		ptr to located char
 **		NULL if not in the string
 */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

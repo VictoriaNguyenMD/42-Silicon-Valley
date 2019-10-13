@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 /*
 ** Appends string src to dst. Append at most dstsize - strlen(dst) -1
@@ -26,7 +26,7 @@
 /*
 **	If dstsize <= len(dst), then len(src) + size,
 **	else len(src) + len(dst) to obtain the smallest destination output
-*/void	*memcpy(void *restrict dst, const void *restrict src, size_t n)
+*/
 
 #include "libft.h"
 

@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 
 /*
-** Locates the first occurence of the null-terminated string needle in the haystack.
-** const char *haystack, const char *needle)
+** Locates the first occurence of the null-terminated string needle in the
+** haystack. const char *haystack, const char *needle)
 ** Return:
 **		needle == '\0' -> haystack
 **		needle not in haystack -> NULL
 **		otherwise, pointer to first char of the first occurence of needle
 */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {

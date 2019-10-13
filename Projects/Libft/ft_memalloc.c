@@ -12,24 +12,25 @@
 
 /*
 **	Allocates (with malloc(3)) and returns a “fresh” memory area.
-** The memory allocated is initialized to 0. If the allocation fails, the function returns NULL
+** The memory allocated is initialized to 0. If the allocation fails,
+**	the function returns NULL
 ** Return: allocated memory area
 */
 
 #include "libft.h"
 
- void *ft_memalloc(size_t size)
+ void	*ft_memalloc(size_t size)
  {
 	unsigned char	*output;
 	size_t			i;
 
 	output = (unsigned char*)malloc(sizeof(size_t) * (size + 1));
 	i = 0;
-	if(!output)
+	if (!output)
 		return (NULL);
 	else
 	{
-		while(i < size)
+		while (i < size)
 		{
 			output[i] = 0;
 			i++;

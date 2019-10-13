@@ -13,9 +13,11 @@
 
 /*
 ** Copies the string src to dst until n characters
-** If src is less than len characters long, the remainder of dst is filled with `\0'
+** If src is less than len characters long, the remainder of dst
+**	is filled with `\0'
 ** characters.  Otherwise, dst is not terminated. If stpncpy() does not
-**		terminate dst with a NUL character, it instead returns a pointer to dst[n]
+**	terminate dst with a NUL character, it instead returns a pointer
+**	to dst[n]
 **		(which does not necessarily refer to a valid memory location.)
 ** Return: returns dst
 */

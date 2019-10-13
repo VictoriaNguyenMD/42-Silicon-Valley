@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 /*
-** Locates the first occurence of c in a string. The null character \0 is part of the string
+** Locates the first occurence of c in a string. The null character \0
+**	is part of the string
 ** Input: const char s, int c
 ** Return:
 **		ptr to located char
@@ -22,11 +23,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while((*s != '\0') && (*s != c))
+	while ((*s != '\0') && (*s != c))
 	{
 		s++;
 	}
-	if(*s == c)
+	if (*s == c)
 	{
 		return ((char *)s);
 	}
