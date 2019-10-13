@@ -29,6 +29,6 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	new_lst = ft_lstnew(f(lst), sizeof(*lst));
 	if (!new_lst)
 		return (NULL);
-	new_lst->next = ft_lstmap(lst->next, f);
+	ft_lstadd(&new_lst, ft_lstmap(lst->next, f));
 	return (new_lst);
 }
