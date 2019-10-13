@@ -15,7 +15,7 @@
 **	whitespaces at the beginner or at the end of the string. The following are
 **	considered whitespaces: ' ', '\n', '\t'. If s has no whitespaces at beg
 **	or the end, the fucntion returns a copy of s. If alloc fails, then NULL.
-**	Param: str to trim
+**	Param: str to trim9
 **	Return: fresh trimmed string or copy of s
 */
 
@@ -26,8 +26,18 @@ char	*ft_strtrim(char const *s)
 	char	*str;
 	int		len;
 
+	if (!s)
+	{
+		return (NULL);
+	}
 	len = (ft_strend((char*)s) - ft_strstart((char*)s) + 1);
+	if (len < 0)
+		len = 0;
 	str = ft_strnew(len + 1);
+	if (!str)
+		return (NULL);
+	if (len == 0)
+		return ("");
 	if (str)
 		str = ft_strsub((char*)s, (unsigned int)
 		ft_strstart((char*)s), (size_t)len);

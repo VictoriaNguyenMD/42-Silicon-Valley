@@ -39,12 +39,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (*c1 == *c2)
 		{
-			while (*(c1 + traverse) == *(c2 + traverse))
+			while ((*(c1 + traverse) == *(c2 + traverse)) && count++ <= len)
 			{
+				if (*(c2 + traverse + 1) == '\0')
+					return ((char*)c1);
 				traverse++;
 			}
-			if (*(c2 + traverse) == '\0')
-				return ((char*)c1);
 		}
 		c1++;
 	}

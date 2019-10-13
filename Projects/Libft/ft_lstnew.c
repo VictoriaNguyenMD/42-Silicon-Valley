@@ -36,13 +36,13 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	else
 	{
 		node->content = ft_memalloc(content_size);
-		if (!node->content)
+		if (!(node->content))
 		{
 			free(node);
 			return (NULL);
-			ft_memcpy(node->content, content, content_size);
-			node->content_size = content_size;
 		}
+		ft_memcpy(node->content, content, content_size);
+		node->content_size = content_size;
 	}
 	node->next = NULL;
 	return (node);

@@ -24,6 +24,9 @@ void	ft_strclr(char *s)
 	i = 0;
 	if (!s)
 		return ;
-	while (s[i] != '\0')
+	while (s[i])
+	{
 		s[i] = '\0';
+		i++;
+	}
 }

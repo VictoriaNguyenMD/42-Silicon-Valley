@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		out;
+	long	out;
 	long	lnum;
 
 	lnum = (long)n;
@@ -23,15 +23,15 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		lnum *= -1;
 	}
-	if (lnum == 0)
-		write(fd, "0", 1);
-	if (lnum == 0)
+	if (lnum < 10)
 	{
+		out = lnum % 10 + '0';
+		write(fd, &out, 1);
 		return ;
 	}
 	else
 	{
-		ft_putnbr(lnum / 10);
+		ft_putnbr_fd(lnum / 10, fd);
 		out = lnum % 10 + '0';
 		write(fd, &out, 1);
 	}

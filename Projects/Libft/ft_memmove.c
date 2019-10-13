@@ -25,27 +25,24 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*csrc;
 	size_t			i;
 
-	cdst = (unsigned char*)dst;
-	csrc = (unsigned char *)src;
-	i = 0;
-	if (cdst < csrc)
+	if (dst == src)
+		return (dst);
+	if (dst < src)
 	{
-		while (csrc[i] && i < len)
-		{
-			cdst[i] = csrc[i];
-			i++;
-		}
+		ft_memcpy(dst, src, len);
 	}
 	else
 	{
-		while (len != 0)
+		cdst = (unsigned char*)dst;
+		csrc = (unsigned char *)src;
+		i = 0;
+		while (len > 0)
 		{
 			len--;
 			cdst[len] = csrc[len];
 		}
 	}
-	cdst[len] = csrc[len];
-	return (cdst);
+	return (dst);
 }
 
 /*

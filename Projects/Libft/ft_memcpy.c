@@ -26,10 +26,12 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	cdst = (unsigned char*)dst;
 	csrc = (unsigned char*)src;
 	i = 0;
+	if ((!dst && !src))
+		return (NULL);
 	while (i < n && csrc[i] != '\0')
 	{
 		cdst[i] = csrc[i];
 		i++;
 	}
-	return (cdst);
+	return (dst);
 }

@@ -28,7 +28,8 @@ NAMES = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_isdigit \
 		ft_strdel ft_strdup ft_strequ ft_striter ft_striteri ft_strjoin \
 		ft_strlcat ft_strlen ft_strmap ft_strmapi ft_strncat ft_strncmp \
 		ft_strncpy ft_strnequ ft_strnew ft_strnstr ft_strrchr ft_strsplit \
-		ft_strstr ft_strsub ft_strtrim ft_tolower ft_toupper
+		ft_strstr ft_strsub ft_strtrim ft_tolower ft_toupper \
+		ft_strstart ft_strend ft_iswhitespace ft_countwords ft_nbrlen
 SRC_FILES = $(addsuffix .c, $(NAMES))
 OBJ_FILES = $(addsuffix .o, $(NAMES))
 
@@ -46,7 +47,7 @@ all: $(NAME)
 #Command that compiles the *.c files, creates the library, and index the files
 $(NAME):
 	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC)/, $(SRC_FILES))
-	@ar -rv $(NAME) $(OBJ_FILES)
+	@ar -rc $(NAME) $(OBJ_FILES)
 	@ranlib $(NAME)
 
 .PHONY: clean

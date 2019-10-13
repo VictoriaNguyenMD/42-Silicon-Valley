@@ -24,10 +24,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	ucs = (unsigned char*)s;
 	i = 0;
-	while (i < n && ucs[i])
+	while (i < n)
 	{
 		if (ucs[i] == (unsigned char)c)
 			return (&ucs[i]);
+		i++;
 	}
 	return (NULL);
 }

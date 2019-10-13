@@ -32,9 +32,9 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src,
 	while (i < n)
 	{
 		cdst[i] = csrc[i];
-		if (csrc[i] == (unsigned char)c)
+		if (csrc[i] == (unsigned char)c || csrc[i] == '\0')
 		{
-			return (&csrc[i + 1]);
+			return (&cdst[i + 1]);
 		}
 		i++;
 	}

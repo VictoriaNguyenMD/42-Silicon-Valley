@@ -28,10 +28,10 @@ void	ft_putnbr(int n)
 		write(1, "-", 1);
 		lnum *= -1;
 	}
-	if (lnum == 0)
-		write(1, "0", 1);
-	if (lnum == 0)
+	if (lnum < 10)
 	{
+		out = lnum % 10 + '0';
+		write(1, &out, 1);
 		return ;
 	}
 	else

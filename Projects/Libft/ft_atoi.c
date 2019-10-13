@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int sign;
-	int output;
+	int			sign;
+	long long	output;
 
 	sign = 1;
 	output = 0;
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 		sign = -1;
 		str++;
 	}
-	if (*str == '+')
+	else if (*str == '+')
 	{
 		str++;
 	}

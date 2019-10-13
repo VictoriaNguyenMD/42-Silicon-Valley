@@ -6,7 +6,7 @@
 /*   By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 20:51:07 by vinguyen          #+#    #+#             */
-/*   Updated: 2019/09/19 19:39:12 by vinguyen         ###   ########.fr       */
+/*   Updated: 2019/10/13 07:46:17 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #ifdef tolower
 int	main(void)
-{
+{
 	printf("tolower: a -> %c\n", ft_tolower('a'));
 	printf("tolower: a -> %c\n", ft_tolower('a'));
 	printf("tolower: a -> %c\n", ft_tolower(65));
@@ -49,7 +49,7 @@ int	main(void)
 */
 
 #ifdef strnstr
-int main(void) {
+int main(void) {OOOO
   const char *largestring = "Foo Bar Baz\0";
   const char *smallstring = "Bard\0";
   char *ptr;
@@ -88,7 +88,7 @@ int main(void) {
   ptr = ft_strrchr(largestring, 'o');
   printf("%s", ptr);
   return 0;
-}
+}OOOOOO
 #endif
 
 /*
@@ -96,7 +96,7 @@ int main(void) {
 */
 
 #ifdef strcat
-int main(void) {
+int main(void) {OOOOOOOOOOOOOOOOOOOOOO
   char largestring[10] = "Foaao";
   char smallstring[4]= "Bar";
 
@@ -120,7 +120,7 @@ int main(void) {
   s = ft_strncat(largestring, smallstring, 2);
   printf("%s", s);
   return 0;
-}
+}OOOOO
 #endif
 
 /*
@@ -137,7 +137,7 @@ int	main(void)
 	str1 = ft_strcpy(str1, "World");
 	printf("%s", str1);
 	return (0);
-}
+}OOOOOO
 #endif
 
 #ifdef memcpy
@@ -216,4 +216,50 @@ int main(void) {
 	printf("%s", ft_itoa(2147483647));
 	return (0);
 }
+#endif
+
+
+#ifdef strtrim
+
+int	main(void)
+{
+	printf("\n%s", ft_strtrim("\t\t\n\t\t   "));
+	printf("\n%s", ft_strtrim("\t\n  \tAAA \t BBB\t\n  \t"));
+	return (0);
+}
+#endif
+
+#ifdef memcmp
+int main(void)
+{
+	printf("\n%d == 0", ft_memcmp("ab\0ab", "ab\0ab", 6));
+	printf("\n%d != 0", ft_memcmp("ab\0ab", "ab\0ac", 6));
+	printf("\n%d < 0", ft_memcmp("aaa", "aab", 4));
+	printf("\n%d == 0", ft_memcmp("aab", "aac", 2));
+	printf("\n%d == 0", ft_memcmp("aww", "bpp", 0));
+	printf("\n%d >= 0", ft_memcmp("\200", "\0", 1));
+	return (0);
+}
+#endif
+
+#ifdef memccpy
+int main(void) {
+	char	buf1[] = "Ceci est un test.";
+	char	buf2[200];
+	void	*p1, *p2;
+
+	p1 = memccpy(buf2, buf1, 'i', 10);
+	p2 = ft_memccpy(buf2, buf1, 'i', 10);
+	printf("\n%d", p1 == p2);
+	printf("\n%d", ft_memccpy(buf2, buf1, 'k', 5) == 0);
+	printf("\n%d", ft_memccpy(buf2, buf1, 0, 0) == memccpy(buf2, buf1, 0, 0));
+
+	printf("\n--%p", ft_memccpy(buf2, buf1, 0, sizeof(buf1))); //error
+	printf("\n--%p", memccpy(buf2, buf1, 0, sizeof(buf1)));
+
+	printf("\n%d", ft_memccpy(buf2, buf1, 0, sizeof(buf1)) == memccpy(buf2, buf1, 0, sizeof(buf1)));
+	printf("\n%d", ft_memccpy(buf2, buf1, 'C', 10) == buf2 + 1);
+	return 0;
+}
+
 #endif

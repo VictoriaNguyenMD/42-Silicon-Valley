@@ -28,7 +28,7 @@ static int		ft_strlen_firstword(char *s, char dl)
 	int		count;
 
 	count = 0;
-	while (s && *s != dl)
+	while (s && *s != dl && *s != '\0')
 	{
 		s++;
 		count++;
@@ -45,6 +45,8 @@ char			**ft_strsplit(char const *s, char c)
 	char	*tmp;
 
 	j = 0;
+	if (!s || !c)
+		return (NULL);
 	dup = ft_strdup(s);
 	if (!(arr = ft_memalloc(ft_countwords(dup, c))))
 		return (NULL);
@@ -54,7 +56,7 @@ char			**ft_strsplit(char const *s, char c)
 		{
 			tmp = ft_memalloc(ft_strlen_firstword(dup, c));
 			i = 0;
-			while (*dup != c)
+			while (*dup != c && *dup != '\0')
 			{
 				tmp[i++] = *dup++;
 			}

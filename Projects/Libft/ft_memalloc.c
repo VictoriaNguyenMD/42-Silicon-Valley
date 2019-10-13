@@ -24,13 +24,15 @@ void	*ft_memalloc(size_t size)
 	unsigned char	*output;
 	size_t			i;
 
-	output = (unsigned char*)malloc(sizeof(size_t) * (size + 1));
+	if (!size || size >= ULONG_MAX)
+		return (NULL);
+	output = (unsigned char*)malloc(size);
 	i = 0;
 	if (!output)
 		return (NULL);
 	else
 	{
-		while (i < size)
+		while (i < (size + 1))
 		{
 			output[i] = 0;
 			i++;

@@ -33,8 +33,10 @@ char	*ft_strdup(const char *s1)
 		ls1++;
 		i++;
 	}
-	s2 = (char*)malloc(sizeof(char) * (ls1 + 1));
+	s2 = malloc(sizeof(*s1) * (ls1 + 1));
 	i = 0;
+	if(!s2)
+		return (NULL);
 	while (s1[i])
 	{
 		s2[i] = s1[i];

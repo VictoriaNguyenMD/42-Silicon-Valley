@@ -16,6 +16,6 @@ void	ft_putchar(int c)
 {
 	char output;
 
-	output = c + '0';
+	output = (char)c;
 	write(1, &output, 1);
 }

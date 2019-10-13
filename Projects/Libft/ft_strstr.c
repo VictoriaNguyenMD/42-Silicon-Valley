@@ -38,10 +38,10 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		{
 			while (*(c1 + traverse) == *(c2 + traverse))
 			{
+				if (*(c2 + traverse + 1) == '\0')
+					return ((char*)c1);
 				traverse++;
 			}
-			if (*(c2 + traverse) == '\0')
-				return ((char*)c1);
 		}
 		c1++;
 	}
