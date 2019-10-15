@@ -40,11 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	while (i < clen)
-	{
-		s[i] = s2[j];
-		i++;
-		j++;
-	}
+		s[i++] = s2[j++];
 	s[i] = '\0';
 	return (s);
 }

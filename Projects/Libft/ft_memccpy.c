@@ -26,13 +26,15 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src,
 	unsigned char	*csrc;
 	size_t			i;
 
+	if ((!dst && !src))
+		return (NULL);
 	cdst = (unsigned char*)dst;
 	csrc = (unsigned char*)src;
 	i = 0;
 	while (i < n)
 	{
 		cdst[i] = csrc[i];
-		if (csrc[i] == (unsigned char)c || csrc[i] == '\0')
+		if (csrc[i] == (unsigned char)c)
 		{
 			return (&cdst[i + 1]);
 		}

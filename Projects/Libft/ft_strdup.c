@@ -35,7 +35,7 @@ char	*ft_strdup(const char *s1)
 	}
 	s2 = malloc(sizeof(*s1) * (ls1 + 1));
 	i = 0;
-	if(!s2)
+	if (!s2)
 		return (NULL);
 	while (s1[i])
 	{

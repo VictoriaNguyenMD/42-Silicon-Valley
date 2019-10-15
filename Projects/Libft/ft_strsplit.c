@@ -36,6 +36,14 @@ static int		ft_strlen_firstword(char *s, char dl)
 	return (count);
 }
 
+static int		ft_strsplit_helper(char const *s, char c, char **dup)
+{
+	if (!s || !c)
+		return (0);
+	*dup = ft_strdup(s);
+	return (1);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	char	*dup;
@@ -45,10 +53,9 @@ char			**ft_strsplit(char const *s, char c)
 	char	*tmp;
 
 	j = 0;
-	if (!s || !c)
+	if (!ft_strsplit_helper(s, c, &dup))
 		return (NULL);
-	dup = ft_strdup(s);
-	if (!(arr = ft_memalloc(ft_countwords(dup, c))))
+	if (!(arr = ft_memalloc(sizeof(char*) * (ft_countwords(dup, c) + 1))))
 		return (NULL);
 	while (dup && *dup)
 	{
@@ -57,10 +64,9 @@ char			**ft_strsplit(char const *s, char c)
 			tmp = ft_memalloc(ft_strlen_firstword(dup, c));
 			i = 0;
 			while (*dup != c && *dup != '\0')
-			{
 				tmp[i++] = *dup++;
-			}
-			arr[j++] = tmp;
+			ft_strcpy(arr[j++] = ft_memalloc(ft_strlen(tmp) + 1), tmp);
+			free(tmp);
 		}
 		dup++;
 	}

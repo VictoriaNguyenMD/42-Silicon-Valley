@@ -27,19 +27,19 @@ char	*ft_strtrim(char const *s)
 	int		len;
 
 	if (!s)
-	{
 		return (NULL);
-	}
 	len = (ft_strend((char*)s) - ft_strstart((char*)s) + 1);
 	if (len < 0)
 		len = 0;
-	str = ft_strnew(len + 1);
+	if (len == 0)
+	{
+		str = malloc(1);
+		str[0] = '\0';
+		return (str);
+	}
+	str = ft_strsub((char*)s,
+	(unsigned int)ft_strstart((char*)s), (size_t)len);
 	if (!str)
 		return (NULL);
-	if (len == 0)
-		return ("");
-	if (str)
-		str = ft_strsub((char*)s, (unsigned int)
-		ft_strstart((char*)s), (size_t)len);
 	return (str);
 }
