@@ -31,18 +31,22 @@ char	*ft_itoa(int n)
 		nlen++;
 		ln *= -1;
 	}
-	str = (char*)ft_memalloc(nlen + 1);
+	str = ft_memalloc((nlen + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	while (nlen-- >= 0)
+	while (nlen-- >= 1)
 	{
-		if (n < 0 && nlen == 0)
-			str[nlen] = '-';
-		else
-		{
-			str[nlen] = (ln % 10) + '0';
-			ln /= 10;
-		}
+		str[nlen] = (ln % 10) + '0';
+		ln /= 10;
 	}
+	if (n < 0)
+		str[0] = '-';
 	return (str);
 }
+
+#ifdef itoa
+int main(void)
+{
+	printf("%s", ft_itoa(1523));
+}
+#endif
