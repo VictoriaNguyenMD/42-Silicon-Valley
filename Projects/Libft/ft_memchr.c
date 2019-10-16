@@ -15,7 +15,7 @@
 ** Return: ptr to the byte located or NULL i no byte exists within n bytes
 */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
