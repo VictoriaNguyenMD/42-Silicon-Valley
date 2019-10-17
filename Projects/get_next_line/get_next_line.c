@@ -43,6 +43,7 @@
 #include "libft/libft.h"
 #include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
 
 int		get_next_line(const int fd, char **line)
 {
@@ -56,15 +57,12 @@ int		get_next_line(const int fd, char **line)
 	{
 		buf[buff_ret] = '\0';
 		if ((tmp = ft_strchr(buf, '\n')))
-		{
-			if (*(tmp + 1) == '\0')
-				*tmp = '\0';
 			*(++tmp) = '\0';
-		}
 		if (*line == NULL)
 			*line = ft_strdup(buf);
 		else
 			*line = ft_strjoin(*line, buf);
+		printf("\n---%s", *line);
 		return (1);
 	}
 	return (0);
@@ -78,14 +76,57 @@ int		main(void)
 	char	*fn;
 	char	*line;
 	int		x;
+	int i = 0;
 
 	fn = "test";
-	fd = open(fn, O_RDONLY);
+	int fd = open(fn, O_RDONLY);
 	while ((x = get_next_line(fd, &line)) == 1)
 	{
-		printf("\n%s", line);
+		i++;
+		printf("%s", line);
 	}
 	close(fd);
+	return (0);
+}
+#endif
+
+#ifdef mouli
+int				main(void)
+{
+	char		*line;
+	int			fd; 
+	int			ret;
+	int			count_lines;
+	char		*filename;
+	int			errors;
+
+	filename = "test";
+	fd = open(filename, O_RDONLY);
+	if (fd > 2)
+	{
+		count_lines = 0;
+		errors = 0;
+		line = NULL;
+		while ((ret = get_next_line(fd, &line)) > 0)
+		{
+			if (count_lines == 0 && strcmp(line, "1234567890abcde") != 0)
+				errors++;
+			if (count_lines == 1 && strcmp(line, "fghijklmnopqrst") != 0)
+				errors++;
+			count_lines++;
+			if (count_lines > 50)
+				break ;
+		}
+		close(fd);
+		if (count_lines != 2)
+			printf("-> must have returned '1' twice instead of %d time(s)\n", count_lines);
+		if (errors > 0)
+			printf("-> must have read \"1234567890abcde\" and \"fghijklmnopqrst\"\n");
+		if (count_lines == 2 && errors == 0)
+			printf("OK\n");
+	}
+	else
+		printf("An error occured while opening file %s\n", filename);
 	return (0);
 }
 #endif
