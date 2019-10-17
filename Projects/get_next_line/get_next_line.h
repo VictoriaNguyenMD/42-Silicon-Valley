@@ -25,6 +25,7 @@
 **	Macro for BUFF_SIZE
 */
 # define BUFF_SIZE 10
+# define MAX_FD 1024
 
 /*
 **	Prototype for get_next_line()

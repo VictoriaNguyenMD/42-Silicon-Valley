@@ -42,39 +42,64 @@
 #include "get_next_line.h"
 #include "libft/libft.h"
 #include <fcntl.h>
+#include <stdlib.h>
+
+void	*ft_memalloc(size_t size)
+{
+	unsigned char	*output;
+	size_t			i;
+
+	if (!size || size >= ULONG_MAX)
+		return (NULL);
+	output = (unsigned char*)malloc((size));
+	i = 0;
+	if (!output)
+		return (NULL);
+	else
+	{
+		while (i < (size))
+		{
+			output[i] = 0;
+			i++;
+		}
+	}
+	return (output);
+}
 
 int		get_next_line(const int fd, char **line)
 {
 	char *buf;
 	static int line_i;
-	int buff_i;
-	int buff_read;
+	int buf_i;
+	int buff_ret;
 
 	line_i = 0;
-	if (!line && !(*line) && fd < 0 && fd > 1024)
+	if (line == NULL || *line == NULL || fd < 0 || fd > MAX_FD)
 		return (-1);
-	if (!(buf = ft_memalloc(BUFF_SIZE + 1)))
-		return (-1);
-	while ((buff_read = read(fd, buf, BUFF_SIZE)))
+	while ((buf = ft_memalloc(BUFF_SIZE + 1)) && (buff_ret = read(fd, buf, BUFF_SIZE)))
 	{
-		buf[buff_read] = '\0';
-		buff_i = 0;
-		while (buf[buff_i] && buf[buff_i] != '\n')
-			buff_i++;
-		printf("\nBuff: %s\n", buf);
-		if ((line[line_i] = ft_strdup(buf)) && buf[buff_i] == '\n')
+		buf[buff_ret] = '\0';
+		buf_i = 0;
+		while (buf[buf_i] && buf[buf_i] != '\n')
 		{
-			buf[buff_i] = '\0';
+			(*line)[line_i] = buf[buf_i];
+			line_i++;
+			buf_i++;
+		}
+		if (buf[buf_i] == '\n')
+		{
+			(*line)[line_i] = '\0';
 			return (1);
 		}
-		line_i += buff_i;
-		line_i++;
+		if (buf[buf_i] == '\0')
+			return (0);
+		free (buf);
 	}
-	return (0);
+	return (-1);
 }
 
 
-#ifdef getnextline
+// #ifdef getnextline
 int		main(void)
 {
 	int fd;
@@ -84,12 +109,14 @@ int		main(void)
 
 	fn = "test";
 	fd = open(fn, O_RDONLY);
-	while ((x = get_next_line(fd, &line)))
+	line = ft_memalloc(sizeof(char) * 100);
+	while ((x = get_next_line(fd, &line)) >= 0)
 	{
+		printf("Test");
 		line[x] = 0;
 		printf("%s\n", line);
 	}
 	close(fd);
 	return (0);
 }
-#endif
+// #endif
