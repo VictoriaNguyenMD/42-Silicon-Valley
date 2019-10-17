@@ -46,10 +46,9 @@
 
 int		get_next_line(const int fd, char **line)
 {
-	char buf[BUFF_SIZE + 1];
-	char fds[MAX_FD];
-	int buff_ret;
-	char *tmp;
+	char	buf[BUFF_SIZE + 1];
+	int		buff_ret;
+	char	*tmp;
 
 	if (line == NULL || fd < 0 || fd > MAX_FD)
 		return (-1);
@@ -57,7 +56,11 @@ int		get_next_line(const int fd, char **line)
 	{
 		buf[buff_ret] = '\0';
 		if ((tmp = ft_strchr(buf, '\n')))
+		{
+			if (*(tmp + 1) == '\0')
+				*tmp = '\0';
 			*(++tmp) = '\0';
+		}
 		if (*line == NULL)
 			*line = ft_strdup(buf);
 		else
@@ -67,14 +70,14 @@ int		get_next_line(const int fd, char **line)
 	return (0);
 }
 
-
 #ifdef getnextline
+
 int		main(void)
 {
-	int fd;
-	char *fn;
-	char *line;
-	int x;
+	int		d;
+	char	*fn;
+	char	*line;
+	int		x;
 
 	fn = "test";
 	fd = open(fn, O_RDONLY);
