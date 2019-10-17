@@ -1,0 +1,169 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    notes.txt                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vinguyen <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/15 20:29:48 by vinguyen          #+#    #+#              #
+#    Updated: 2019/10/15 20:29:55 by vinguyen         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+[File Descriptors]
+File descriptor identifies an open file
+fd 0 = stdin (standard input) --> what you write using the keyboard
+fd 1 = stdout (standard output) --> what you see on the screen
+fd 2 = stderr (standard error) --> any error to the videoscren. can be from
+ifile write to std error
+
+read() read from the fd into the buffer up until count bytes
+ssize_t read(int fd, void *buf, size_t count)
+
+[Reading Files in C]
+Skim through this: https://my.eng.utah.edu/~cs4400/file-descriptor.pdf
+A few Youtube videos watched:
+- https://www.youtube.com/watch?v=8nIilb2kiSU
+- https://www.youtube.com/watch?v=9KVqEpiKxTY
+- https://www.youtube.com/watch?v=Y3ChUPjL6W4
+
+*C Programming Tutorial - 51 - How to Read Files*
+fopen = opens up a notepad/file
+FILE = fPointer;
+fPointer = fopen("bacon.txt", "r"); <- r = read
+
+The code above just opens the file, but to display the contents of the file,
+you need to store the content in a character array.
+
+#include <stdio.h>
+#include <stdlib.h>
+char singleLine[150];
+
+while(!feof(fPointer))
+{
+	fgets(singleLine, 150, fPointer);
+	puts(singleLine);
+}
+
+The code above will read the file until the end of the file(eof)
+
+fclose(fPoitner);
+
+The code above will close the file. All files need to be closed if opened.
+
+
+[Memory]
+
+Static Memory vs Dynamic Memory
+
+Static Memory -> Fixed Memory
+- Once you allocate the memory, you cannot increase/decrease the size
+- Arrays: int arr[5]
+
+Dynamic Memory -> Memory can vary
+- Initial memory (insertion & deletion)
+- Memory size is not constant. It acn grow/shrink
+- Pointers: int *arr = (int*)calloc(5, sizeof(int))
+	- calloc will use realloc function to increase or decrease memory block
+
+
+Compiler does not allocate the memory. Memory allocation is only at runtime only. Compiler can determine the
+size of the variable.
+
+Computer Process: Source Code (your code) -> Compiler -> Program.exe file
+Compilation process = converting high level instructions into machine level
+
+Program.exe -> Operating system --> Run -> Output -> Memory allocation occurs
+Compiler can recognize how much memory is used by the program when the program is running
+
+Memory: Stack vs Heap
+
+Buffers: a chunk of memory used to store something temporary. Think of streaming a movie online. So that the
+movie wouldnt keep on freezing, a certain amount of the movie is loaded in the buffer before being presented
+to you.
+
+Static Variables
+Meanings
+1. Inside a function. A local variable would normally allocat memory on the stack and then free the memory
+at the end of the function. However, a static variable would allocate memory in the DATA segment. When the
+DATA value is changed, whenever the function is called, it would inherit the new value of the DATA value.
+**Important: static variables only get initalized once.
+Personal note: static is like making the variable callable by the address such that when you change the variable,
+the address is inherently called and you change that value
+
+As a result, a local variable loses the value between functions while a static variable retains the value.
+2. At the function level. For static global variables and static functions, the variables and functions
+are limited only to that file. They cannot be accessed from other C files.
+
+
+*Note, when you compile a program, you are converting the code into machine code. A program exeutes the machine code.
+When you run something, it needs to load the machine code into the main code of the program.
+
+Terminal:
+- % after a line means that there is a non-null output from a program (no  \n char)
+
+Stack:
+- Variable declaration
+- Once something is being called and completed, it will automatically remove itself from the memory
+- auto variables are here, like auto int a = int a.
+- When the stack memory met the heap memory, free memory was exhausted
+- LIFO at the top of the stack  (last in, first out)
+
+Heap:
+- Where memory is allocated
+- For heap, you need to manually delete the items
+- If a program doesn't handle heap properly, you will have a memory leak
+- Begins at the end of the BSS statement
+
+Unitialized Data (BSS)
+- Data is initalized to 0 before the program starts executing
+- Contains all global and static variables are initalized to 0 & do not have a source code
+- Static int i
+- Global variable int j
+
+Initalized Data (data)
+- global/static vairables]
+- Variables can be altered at run time
+- Can be further broken down into read-only and read-write areas
+
+Text/Code
+- Often read only to present modifying the instructions
+- Shared, only a single copy needs to be in memory
+
+
+https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/
+
+Storage allocation of string in C:
+https://www.geeksforgeeks.org/storage-for-strings-in-c/
+
+Types of strings:
+1) Read only: char *str = "GfG"; <- read only. Unable to change the individual characters
+2) Dynamically allocated in heap: <- you can modify.
+char *str;
+int size = 4;
+str = (char*)malloc(sizeof(char)*size);
+*(str+0) = 'G';
+*(str+1) = 'f';
+*(str+2) = 'G';
+*(str+3) = '\0';
+3) Writable section
+char str[] = "GfG" <- stored in stack segment like other auto vairables
+
+[Terminal Debugging Tips for Libft]
+- grep "victoria" result.log
+
+
+- grep "^\[.*\].*lstnew" -B 20 result.log
+^ Karat means beginning of the line
+_$ means end of line (eg. ;$)
+The information in the " " is a regular expression.
+The -B 20: 20 lines before the line where the pattern is met
+-A means after
+-C means center (aka 10 above, 10 below)
+
+UNIX commands = terminal
+-man
+-ls -la (-lt) <-- a = attributes & hidden files, l = list
+-mkdir
+- find . -name ft_debut
+- sed
