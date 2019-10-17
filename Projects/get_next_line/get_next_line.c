@@ -44,62 +44,31 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-void	*ft_memalloc(size_t size)
-{
-	unsigned char	*output;
-	size_t			i;
-
-	if (!size || size >= ULONG_MAX)
-		return (NULL);
-	output = (unsigned char*)malloc((size));
-	i = 0;
-	if (!output)
-		return (NULL);
-	else
-	{
-		while (i < (size))
-		{
-			output[i] = 0;
-			i++;
-		}
-	}
-	return (output);
-}
-
 int		get_next_line(const int fd, char **line)
 {
-	char *buf;
-	static int line_i;
-	int buf_i;
+	char buf[BUFF_SIZE + 1];
+	char fds[MAX_FD];
 	int buff_ret;
+	char *tmp;
 
-	line_i = 0;
-	if (line == NULL || *line == NULL || fd < 0 || fd > MAX_FD)
+	if (line == NULL || fd < 0 || fd > MAX_FD)
 		return (-1);
-	while ((buf = ft_memalloc(BUFF_SIZE + 1)) && (buff_ret = read(fd, buf, BUFF_SIZE)))
+	while ((buff_ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[buff_ret] = '\0';
-		buf_i = 0;
-		while (buf[buf_i] && buf[buf_i] != '\n')
-		{
-			(*line)[line_i] = buf[buf_i];
-			line_i++;
-			buf_i++;
-		}
-		if (buf[buf_i] == '\n')
-		{
-			(*line)[line_i] = '\0';
-			return (1);
-		}
-		if (buf[buf_i] == '\0')
-			return (0);
-		free (buf);
+		if ((tmp = ft_strchr(buf, '\n')))
+			*(++tmp) = '\0';
+		if (*line == NULL)
+			*line = ft_strdup(buf);
+		else
+			*line = ft_strjoin(*line, buf);
+		return (1);
 	}
-	return (-1);
+	return (0);
 }
 
 
-// #ifdef getnextline
+#ifdef getnextline
 int		main(void)
 {
 	int fd;
@@ -109,14 +78,11 @@ int		main(void)
 
 	fn = "test";
 	fd = open(fn, O_RDONLY);
-	line = ft_memalloc(sizeof(char) * 100);
-	while ((x = get_next_line(fd, &line)) >= 0)
+	while ((x = get_next_line(fd, &line)) == 1)
 	{
-		printf("Test");
-		line[x] = 0;
-		printf("%s\n", line);
+		printf("\n%s", line);
 	}
 	close(fd);
 	return (0);
 }
-// #endif
+#endif
